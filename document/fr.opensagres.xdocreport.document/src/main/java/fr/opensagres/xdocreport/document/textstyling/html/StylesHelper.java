@@ -82,7 +82,7 @@ public class StylesHelper
      * @param style
      * @return
      */
-    public static ParagraphProperties createParagraphProperties( String style )
+    public static ParagraphProperties createParagraphProperties( String style, String styleClass )
     {
         Map<String, String> stylesMap = StylesHelper.parse( style );
         if ( !stylesMap.isEmpty() )
@@ -91,6 +91,12 @@ public class StylesHelper
             processContainerproperties( properties, stylesMap );
             return properties;
         }
+        if (!StringUtils.isEmpty(styleClass)) {
+            ParagraphProperties properties = new ParagraphProperties();
+            properties.setStyleClass(styleClass);
+            return properties;
+        }
+        
         return null;
     }
 
@@ -118,7 +124,7 @@ public class StylesHelper
      * @param style
      * @return
      */
-    public static ListItemProperties createListItemProperties( String style )
+    public static ListItemProperties createListItemProperties( String style, String styleClass )
     {
         Map<String, String> stylesMap = StylesHelper.parse( style );
         if ( !stylesMap.isEmpty() )
@@ -127,6 +133,13 @@ public class StylesHelper
             processContainerproperties( properties, stylesMap );
             return properties;
         }
+        
+        if (!StringUtils.isEmpty(styleClass)) {
+        	ListItemProperties properties = new ListItemProperties();
+            properties.setStyleClass(styleClass);
+            return properties;
+        }
+        
         return null;
     }
 

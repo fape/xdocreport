@@ -311,7 +311,11 @@ public class DocxDocumentHandler
         paragraphWasInserted = true;
         super.setTextLocation( TextLocation.End );
         super.write( "<w:p>" );
-        processParagraphProperties( properties, pStyle, isList );
+        String style = pStyle;
+        if(StringUtils.isEmpty(pStyle) && properties != null){
+        	style = properties.getStyleClass();
+        }
+        processParagraphProperties( properties, style, isList );
         paragraphsStack.push( properties );
     }
 

@@ -54,6 +54,8 @@ public abstract class ContainerProperties
     private TextAlignment textAlignment;
 
     private final ContainerType type;
+    
+    private String styleClass;
 
     public ContainerProperties( ContainerType type )
     {
@@ -154,4 +156,12 @@ public abstract class ContainerProperties
     {
         this.textAlignment = textAlignment;
     }
+
+	public String getStyleClass() {
+		return styleClass;
+	}
+
+	public void setStyleClass(String styleClass) {
+		this.styleClass = styleClass;
+	}
 }

@@ -49,6 +49,8 @@ public class HTMLTextStylingContentHandler
 {
 
     private static final String STYLE_ATTR = "style";
+    
+    private static final String CLASS_ATTR = "class";
 
     // HTML elements for Bold style
     private static final String STRONG_ELT = "strong";
@@ -217,14 +219,14 @@ public class HTMLTextStylingContentHandler
             {
                 // List item
                 ListItemProperties properties =
-                    StylesHelper.createListItemProperties( attributes.getValue( STYLE_ATTR ) );
+                    StylesHelper.createListItemProperties( attributes.getValue( STYLE_ATTR ), attributes.getValue( CLASS_ATTR ) );
                 documentHandler.startListItem( properties );
             }
             else if ( P_ELT.equals( name ) )
             {
                 // Paragraph
                 ParagraphProperties properties =
-                    StylesHelper.createParagraphProperties( attributes.getValue( STYLE_ATTR ) );
+                    StylesHelper.createParagraphProperties( attributes.getValue( STYLE_ATTR ), attributes.getValue( CLASS_ATTR ) );
                 documentHandler.startParagraph( properties );
             }
             else if ( H1_ELT.equals( name ) )
